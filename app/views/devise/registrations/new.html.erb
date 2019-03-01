@@ -1,44 +1,33 @@
-
-  <div class="col-md-4 offset-4">
+<div class="col-md-4 offset-4">
   <div class="card mb-4 shadow-sm">
     <div class="card-body text-center">
-      
-        <h2 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h2>
-        <h4><b>友達の写真や動画をチェックしよう</b></h4>
-        <p></p>
-
+      <h2 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h2>
+      <h4><b>友達の写真や動画をチェックしよう</b></h4>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name)) do |f| %>
         <%= render "devise/shared/error_messages", resource: resource %>
-      
         <div class="field">
           <%= f.email_field :email, autofocus: true, autocomplete: "email", placeholder:"メールアドレス"  %>
         </div>
-        
         <div class="field">
           <%= f.text_field :name, placeholder:"フルネーム" %>
         </div>
-      
         <div class="field">
           <%= f.text_field :username, placeholder:"ユーザーネーム" %>
         </div>
-      
         <div class="field">
           <%= f.password_field :password, autocomplete: "new-password", placeholder:"パスワード" %>
         </div>
-      
         <div class="actions">
           <%= f.submit "登録する", class:"btn btn-md btn-primary font-weight-bold" %>
         </div>
       <% end %>
-  <p class="g4Vm4">
-    登録することで、Facebookの<a target="_blank" href="https://help.instagram.com/581066165581870">利用規約</a>、<br>
-    <a target="_blank" href="https://help.instagram.com/519522125107875">データに関するポリシー</a>、<br>
-    <a target="_blank" href="/legal/cookies/">Cookieポリシー</a>に同意するものとします。
-  </p>
-  
-  <%= render "devise/shared/links" %>
-      </div>
+      
+      <p class="g4Vm4">
+        登録することで、Facebookの<a target="_blank" href="https://help.instagram.com/581066165581870">利用規約</a>、<br>
+        <a target="_blank" href="https://help.instagram.com/519522125107875">データに関するポリシー</a>、<br>
+        <a target="_blank" href="/legal/cookies/">Cookieポリシー</a>に同意するものとします。
+      </p>
+      <%= render "devise/shared/links" %>
     </div>
   </div>
-
-
+</div>
