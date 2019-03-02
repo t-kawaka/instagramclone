@@ -1,7 +1,10 @@
 <div class="col-md-4 offset-4">
+  <div class="text-center">
+    <p class="notice"><%= notice %></p>
+    <p class="alert"><%= alert %></p>
+  </div>
   <div class="card mb-4 shadow-sm">
     <div class="card-body text-center">
-
       <h2 class="NXVPg Szr5J  coreSpriteLoggedOutWordmark">Instagram</h2>
       
       <%= form_for(resource, as: resource_name, url: session_path(resource_name)) do |f| %>
