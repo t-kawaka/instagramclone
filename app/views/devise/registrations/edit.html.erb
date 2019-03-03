@@ -5,7 +5,10 @@
       
       <h3>プロフィールを変更</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-       
+      
+        <div class="field">
+          <%= f.label :ユーザーネーム %><br />
+        </div>
         
         <div class="field">
           <%= f.label :名前 %><br />
@@ -46,12 +49,12 @@
   </div>
 </div>
 
-<div class="col-md-6 offset-3 mt-5">
- <div class="card mb-4 shadow-sm">
+<div class="col-md-6 offset-3 mt-5 mb-5">
+  <div class="card mb-4 shadow-sm">
     <div class="card-body">
       <h3>パスワードを変更</h3>
       <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-         <div class="field">
+        <div class="field">
           <%= f.label :パスワード入力 %><br />
           <%= f.password_field :current_password, autocomplete: "current-password" %>
         </div>
@@ -63,20 +66,18 @@
           <% end %>
           <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
         </div>
-
-  <div class="field">
-    <%= f.label :password_confirmation, "新しいパスワードを確認" %><br />
-    <%= f.password_field :password_confirmation, autocomplete: "off" %>
-  </div>
-  
+        <div class="field">
+          <%= f.label :password_confirmation, "新しいパスワードを確認" %><br />
+          <%= f.password_field :password_confirmation, autocomplete: "off" %>
+        </div>
       　<div class="profile">
-      　  <div class="actions col-md-2">
-            <%= f.submit "送信する", class:"btn btn-ml btn-primary" %>
-          </div>
-      　</div>
-      　<div class="profile">
-      　  <div class="actions col-md-3">
-            <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info" %>
+      　    <div class="actions col-md-2">
+              <%= f.submit "送信する", class:"btn btn-ml btn-primary mb-4" %>
+           </div>
+        </div>
+        <div class="profile">
+          <div class="actions col-md-3">
+            <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info mt-5 mb-3" %>
           </div>
       　</div>
       <% end %>
