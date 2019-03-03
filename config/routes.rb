@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
-  get 'blogs/index'
-
   devise_for :users
+  resources :blogs
+  resources :profiles
   root to: "blogs#index"
 end
