@@ -9,7 +9,7 @@ class ProfilesController < ApplicationController
   def create
     @profile = current_user.profiles.new(profile_params)
     if @profile.save
-      redirect_to new_profile_path, notice:"プロフィールを作成しました"
+      redirect_to blogs_path, notice:"プロフィールを作成しました"
     else
       render 'new'
     end
