@@ -4,4 +4,5 @@ class User < ApplicationRecord
   validates :username, presence: true
    has_many :blogs, dependent: :destroy
    has_many :profiles, dependent: :destroy
+   mount_uploader :profile, ProfileUploader
 end
