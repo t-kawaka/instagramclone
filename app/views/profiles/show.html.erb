@@ -1,2 +1,16 @@
-<h1>Profiles#show</h1>
-<p>Find me in app/views/profiles/show.html.erb</p>
+<h1>プロフィール詳細画面</h1>
+<%= link_to 'Back', blogs_path, class:"btn btn-ml btn-light" %><br>
+<% if user_signed_in? && @blog.user_id == current_user.id %>
+  <%= link_to 'Edit', edit_blog_path(@blog), class:"btn btn-ml btn-info mt-3" %><br>
+<% end %>
+<table>
+  <div class="name">
+    ユーザー名：<%= @blog.user.name %><br>
+  </div>
+  <div class="content">
+    <p><%= simple_format(@blog.content) %></p>
+  </div>
+  <div class="main_picture">
+    <p><%= image_tag @blog.picture.url %></p>
+  </div>
+</table>

@@ -1,0 +1,28 @@
+<%= form_with(model: @profile, local: true ,url: choose_new_or_edit) do |form| %>
+  <% if @profile.errors.any? %>
+    <div id = "error_explanation">
+      <h2><%= @profile.errors.count %>件のエラーがあります。</h2>
+      <ul>
+        <% @blog.errors.full_messages.each do |msg| %>
+          <li><%= msg %></li>
+        <% end %>
+      </ul>
+    </div>
+  <% end %>
+ 
+  <div class="blog_title">
+    <%= form.label :投稿 %>
+    <%= form.text_area :introduce, placeholder:"今なにしてる？", class:"form-control", rows: 5 %>
+  </div>
+  <div class="field">
+    <%= form.label :画像 %><br>
+    <div class="main_picture">
+      <%= image_tag(@profile.picture, :width => "400px", class:"mb-5") if @blog.picture %>
+    </div>
+    <%= form.file_field :picture, class:"form-control" %>
+    <%= form.hidden_field :picture_cache, class:"form-control" %>
+  </div>
+  <%= form.submit "シェア", class:"btn btn-lg btn-success my-3" %>
+<% end %>
+
+<%= link_to "ブログ一覧画面に戻る", blogs_path, class:"btn btn-lg btn-light mb-5" %>
