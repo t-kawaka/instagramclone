@@ -9,7 +9,7 @@ class BlogsController < ApplicationController
     if params[:back]
       @blog = Blog.new(params[:id])
     else
-      @blog = blog.new
+      @blog = Blog.new
     end
   end
   
@@ -24,7 +24,7 @@ class BlogsController < ApplicationController
   
   def confirm
     @blog = current_user.blogs.new(blog_params)
-    render new if @blog.invalid?
+    render :new if @blog.invalid?
   end
   
   def show
