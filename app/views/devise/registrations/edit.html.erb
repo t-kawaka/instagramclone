@@ -35,6 +35,11 @@
           <%= f.label :メールアドレス %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
+        
+        <div class="field">
+          <%= f.label :電話番号 %><br />
+          <%= f.telephone_field :number, autofocus: true, autocomplete: "number" %>
+        </div>
       
          <div class="field">
           <%= f.label :パスワード入力 %><br />
