@@ -1,23 +1,29 @@
 <div class="container">
   <% if user_signed_in? %>
-    <%= image_tag(current_user.profile_url,:width => "100px") %>
-    <div class="font">
-      <%= current_user.username %><br>
-      <%= current_user.introduce %>
-    </div>
+  <table>
+    <tbody>
+      <tr>
+        <td><%= image_tag(current_user.profile_url,:width => "100px") %></td>
+        <td class="space">
+          <div class="font">
+            <%= current_user.username %><br>
+            <%= current_user.introduce %>
+          </div>
+        </td>
+      </tr>
+    </tbody>
+  </table>
+    
     <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3" %><br>
   <% end %>
 
   <table class="table-light mt-3 mb-5 p-4">
     <% @blogs.each do |blog| %>
     <% if user_signed_in? && blog.user_id == current_user.id %>
-      <tr>
-        <td class="name"><%= link_to blog.user.username, blog_path(blog.id) %></td>
-      <tr>
-        <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
-            <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
-            <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
-          <% end %>
+      <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
+      <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
+      <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
+    <% end %>
       <tr>
         <td class="picture">
         <%=link_to image_tag(blog.image_url,:width => "400px"), blog_path(blog.id) %>

@@ -1,12 +1,12 @@
 <div class="container">
-  <h1>ブログ詳細画面</h1>
+  <h3>ブログ詳細画面</h3>
   <%= link_to 'Back', person_blogs_path, class:"btn btn-ml btn-light" %><br>
   <% if user_signed_in? && @blog.user_id == current_user.id %>
     <%= link_to 'Edit', edit_blog_path(@blog), class:"btn btn-ml btn-info mt-3" %><br>
   <% end %>
   <table>
     <div class="name">
-      ユーザー名：<%= @blog.user.name %><br>
+      ユーザーネーム：<%= @blog.user.username %><br>
     </div>
     <div class="content">
       <p><%= simple_format(@blog.content) %></p>
