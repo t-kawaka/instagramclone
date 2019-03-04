@@ -1,8 +1,9 @@
 <div class="container">
-  <h1 class="mt-2">投稿者情報</h1>
   <% if user_signed_in? %>
+    <%= image_tag(current_user.profile_url,:width => "100px") %>
     <div class="font">
       <%= current_user.username %><br>
+      <%= current_user.introduce %>
     </div>
     <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3" %><br>
   <% end %>
@@ -17,9 +18,6 @@
             <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
             <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
           <% end %>
-      <tr>
-        <td class="content"><%= blog.content %></td>
-      </tr>
       <tr>
         <td class="picture">
         <%=link_to image_tag(blog.image_url,:width => "400px"), blog_path(blog.id) %>
