@@ -23,7 +23,33 @@ li a:hover {
     margin-left: 400px;
 }
 
+/*トップ画面（index） */
+td{
+  width:150px;
+  padding: 0 15px 15px 15px;
+}
+
 /*メッセージ（_messages） */
 .notice{
   margin: 15px 0 -10px 0;
+}
+
+/*投稿者情報（show）*/
+.font{
+  font-size: 1.2rem !important;
+}
+
+/*ブログ詳細画面（show） */
+.main_picture img{
+  width: 500px;
+  border-radius: 10px;
+  margin-bottom: 50px;
+}
+
+.name{
+  margin: 10px auto;
+}
+
+.content{
+  margin: 20px auto;
 }
