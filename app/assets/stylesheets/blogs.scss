@@ -41,9 +41,10 @@ td{
 
 /*ブログ詳細画面（show） */
 .main_picture img{
-  width: 500px;
+  width: 400px;
   border-radius: 10px;
-  margin-bottom: 50px;
+  margin-top : 10px;
+  margin-bottom: 10px;
 }
 
 .name{
@@ -56,4 +57,8 @@ td{
 
 td.space{
   width: 400px;
+}
+
+td.user_information{
+  width: 500px;
 }
