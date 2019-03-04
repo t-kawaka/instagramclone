@@ -7,7 +7,7 @@ class BlogsController < ApplicationController
   
   def new
     if params[:back]
-      @blog = Blog.new(params[:id])
+      @blog = Blog.new(blog_params)
     else
       @blog = Blog.new
     end
@@ -57,6 +57,10 @@ class BlogsController < ApplicationController
     redirect_to do |format|
       format.html { redirect_to blogs_path, notice:msg}
     end
+  end
+  
+   def person
+    @blogs = Blog.all
   end
   
   private
