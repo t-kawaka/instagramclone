@@ -54,9 +54,7 @@ class BlogsController < ApplicationController
     else
       msg = "許可されていません"
     end
-    redirect_to do |format|
-      format.html { redirect_to blogs_path, notice:msg}
-    end
+    redirect_to blogs_path, notice:"ブログを削除しました！"
   end
   
    def person
