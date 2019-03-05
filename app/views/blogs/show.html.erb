@@ -1,7 +1,8 @@
 <div class="container">
   <h3>ブログ詳細画面</h3>
-  <%= link_to 'Back', person_blogs_path, class:"btn btn-ml btn-light" %><br>
+  <%= link_to 'トップページ', root_path, class:"btn btn-ml btn-light" %><br>
   <% if user_signed_in? && @blog.user_id == current_user.id %>
+    <%= link_to '投稿者情報', person_blogs_path, class:"btn btn-ml btn-light" %><br>
     <%= link_to '編集する', edit_blog_path(@blog), class:"btn btn-ml btn-info m-3" %>
     <%= link_to '削除する', blog_path(@blog), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger m-3" %>
   <% end %>
