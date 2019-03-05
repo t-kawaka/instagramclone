@@ -8,20 +8,19 @@
     <h5 class="mt-3 ml-2">投稿一覧</h5>
     <% @blogs.each do |blog| %>
       <tr>
-        <td class="name"><%= link_to blog.user.username, blog_path(blog.id) %></td>
+        <% if current_user.profile? %>
+          <td class="personal_picture"><%= link_to image_tag(current_user.profile_url,:width => "60px"), blog_path(blog.id) %></td>
+        <% end %>
+        <td class="name"><%= blog.user.username %></td>
       <tr>
         <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
-          <% if user_signed_in? && blog.user_id == current_user.id %>
-            <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
-            <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
-          <% end %>
-      <tr>
-        <td class="content"><%= blog.content %></td>
-      </tr>
       <tr>
         <td class="picture">
           <%=link_to image_tag(blog.image_url,:width => "400px"), blog_path(blog.id) %>
         </td>
+      </tr>
+       <tr>
+        <td class="content"><%= blog.content %></td>
       </tr>
     <% end %>
   </table>
