@@ -3,6 +3,6 @@ class User < ApplicationRecord
          :recoverable, :rememberable, :validatable
   validates :username, presence: true
    has_many :blogs, dependent: :destroy
-   has_many :profiles, dependent: :destroy
+   has_many :favorites, dependent: :destroy
    mount_uploader :profile, ProfileUploader
 end
