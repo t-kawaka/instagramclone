@@ -4,7 +4,7 @@
     <tbody>
       <tr>
         <% if current_user.profile? %>
-          <td><%= image_tag(current_user.profile_url,:width => "100px") %></td>
+          <td class="personal_picture"><%= image_tag(current_user.profile_url,:width => "100px") %></td>
         <% end %>
         <td class="space">
           <div class="font">
@@ -16,7 +16,7 @@
     </tbody>
   </table>
     
-    <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3" %><br>
+    <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3 ml-3" %><br>
   <% end %>
 
   <table class="table-light mt-3 mb-5 p-4">

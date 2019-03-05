@@ -11,7 +11,9 @@
         </div>
         
         <div class="field">
-          <%= image_tag(@user.profile, :width => "200px", class:"mb-4") if @user.profile %>
+          <div class="personal_picture">
+            <%= image_tag(@user.profile, :width => "100px", class:"mb-4") if @user.profile %>
+          </div>
           <%= f.file_field :profile, class:"form-control" %>
           <%= f.hidden_field :profile_cache, class:"form-control" %>
         </div>

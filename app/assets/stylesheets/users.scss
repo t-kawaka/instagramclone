@@ -1,6 +1,8 @@
 // Place all the styles related to the Blogs controller here.
 // They will automatically be included in application.css.
 // You can use Sass (SCSS) here: http://sass-lang.com/
+
+/*User画面 全体 */
 html, body {
   height: 100%;
   font-family:Billabong;
@@ -24,7 +26,12 @@ input, textarea, select, .uneditable-input {
   margin-bottom: 15px;
 }
 
+/*プロフィール・パスワード変更（users/edit) */
 .profile{
   margin-left: -15px;
   margin-top: -45px;
+}
+
+.personal_picture img{
+  border-radius: 50%;
 }
