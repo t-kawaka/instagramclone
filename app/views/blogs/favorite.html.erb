@@ -16,16 +16,13 @@
       </tr>
     </tbody>
   </table>
-    
-    <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3 ml-3" %><br>
   <% end %>
 
   <table class="table-light mt-3 mb-5 p-4">
     <% @blogs.each do |blog| %>
-      <% if user_signed_in? && blog.user_id == current_user.id %>
-        <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
-        <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
-        <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
+       <% if user_signed_in? && blog.user_id != current_user.id %>
+        ユーザー名：<%= blog.user.username %><br>
+        <%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %>
          <tr>
           <td class="picture">
           <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
