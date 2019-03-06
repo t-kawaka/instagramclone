@@ -1,10 +1,10 @@
 <%= form_with(model:@blog, local: true , url: choose_new_or_edit) do |form| %>
   <% if @blog.errors.any? %>
-    <div id = "error_explanation">
-      <h2><%=@blog.errors.count %>件のエラーあります。</h2>
+    <div id = "error_explanation", class="alert alert-danger">
+      <h3><%=@blog.errors.count %>件のエラーあります。</h3>
       <ul>
         <%= @blog.errors.full_messages.each do |msg| %>
-          <li><%= msg %></li>
+          <%= msg %><br>
         <% end %>
       </ul>
     </div>
@@ -21,7 +21,7 @@
     <%= form.hidden_field :image_cache, class:"form-control" %>
   </div>
   <div class="col-3">
-  <%= form.submit "シェア", class:"btn btn-lg btn-success my-3" %>
+    <%= form.submit "シェア", class:"btn btn-lg btn-success my-3" %>
   </div>
 <% end %>
 

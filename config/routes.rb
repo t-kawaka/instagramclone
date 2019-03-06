@@ -1,6 +1,6 @@
 Rails.application.routes.draw do
   devise_for :users
-  resources :favorites
+  resources :favorites, only: [:create, :destroy]
   resources :blogs do
     collection do
       post :confirm
