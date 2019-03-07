@@ -21,8 +21,8 @@ Rails.application.configure do
   config.active_support.deprecation = :log
   config.active_record.migration_error = :page_load
   config.assets.debug = true
-  config.action_mailer.default_url_options = { host: 'localhost', port: 3000 }
-  config.action_mailer.delivery_method = :letter_opener
+  config.action_mailer.default_url_options = { host: 'dive-into-code-8-tkchorin.c9users.io:8080/' }
+  config.action_mailer.delivery_method = :letter_opener_web
   config.assets.quiet = true
   config.file_watcher = ActiveSupport::EventedFileUpdateChecker
 end
