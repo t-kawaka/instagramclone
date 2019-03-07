@@ -3,14 +3,16 @@
 
   <table class="table-light mt-3 mb-5 p-4">
     <% @blogs.each do |blog| %>
-       <% if user_signed_in? && blog.user_id != current_user.id %>
-        フォローユーザー名：<%= blog.user.username %><br>
-        <%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %>
-         <tr>
-          <td class="picture">
-          <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
-          </td>
+      <% if user_signed_in? && blog.user_id != current_user.id %>
+        <tr>
+          <td>フォローユーザー名：<%= blog.user.username %><br></td>
+          <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
         </tr>
+        <tr>
+         <td class="picture">
+           <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
+         </td>
+       </tr>
       <% end %>
     <% end %>
   </table>
