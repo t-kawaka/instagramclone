@@ -1,25 +1,5 @@
 <div class="container">
-  <% if user_signed_in? %>
-  <table>
-    <tbody>
-      <tr>
-        <% if current_user.profile? %>
-          <td class="personal_picture"><%= image_tag(current_user.profile_url,:width => "60px") %></td>
-        <% end %>
-        <td class="space">
-          <div class="font">
-            <%= current_user.username %><br>
-            <%= current_user.introduce %><br>
-            いいね件数: <%= current_user.favorites.count %>
-          </div>
-        </td>
-      </tr>
-    </tbody>
-  </table>
-    
-    <%= link_to 'ブログ投稿', new_blog_path, class:"btn btn-ml btn-success mt-3 ml-3" %><br>
-  <% end %>
-
+  <%= render "shared/information" %>
   <table class="table-light mt-3 mb-5 p-4">
     <% @blogs.each do |blog| %>
       <% if user_signed_in? && blog.user_id == current_user.id %>
