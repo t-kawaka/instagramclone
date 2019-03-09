@@ -8,7 +8,6 @@
       <% if user_signed_in? && blog.user_id != current_user.id %>
         <tr>
           <td>フォローユーザー名：<%= blog.user.username %><br></td>
-          <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
         </tr>
         <tr>
          <td class="picture">
