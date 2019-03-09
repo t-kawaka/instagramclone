@@ -2,7 +2,9 @@
  <%= render "shared/information" %>
 
   <table class="table-light mt-3 mb-5 p-4">
+   
     <% @blogs.each do |blog| %>
+    <% if blog.favorite_users.present? %>
       <% if user_signed_in? && blog.user_id != current_user.id %>
         <tr>
           <td>フォローユーザー名：<%= blog.user.username %><br></td>
@@ -14,6 +16,7 @@
          </td>
        </tr>
       <% end %>
+    <% end %>
     <% end %>
   </table>
 </div>

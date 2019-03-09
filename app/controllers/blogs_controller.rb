@@ -65,7 +65,6 @@ class BlogsController < ApplicationController
   
   def favorite
     @blogs = Blog.all
-    
   end
   
   private
