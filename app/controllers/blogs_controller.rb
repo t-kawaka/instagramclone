@@ -2,7 +2,7 @@ class BlogsController < ApplicationController
   before_action :authenticate_user!
   before_action :set_blog, only: [:show, :edit, :update, :destroy]
   def index
-    @blogs = Blog.all
+    @blogs = Blog.page(params[:page])
   end
   
   def new
