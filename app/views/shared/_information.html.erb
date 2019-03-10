@@ -1,19 +1,21 @@
 <% if user_signed_in? %>
 <table>
-<tbody>
-  <tr>
-    <% if current_user.profile? %>
-      <td class="personal_picture"><%= image_tag(current_user.profile_url,:width => "60px") %></td>
-    <% end %>
-    <td class="space">
-      <div class="font">
-        <%= current_user.username %><br>
-        <%= current_user.introduce %><br>
-        投稿数: <%= current_user.blogs.count %><br>
-        いいね件数: <%= current_user.favorites.count %>
-      </div>
-    </td>
-  </tr>
-</tbody>
+  <tbody>
+    <tr>
+      <% if current_user.profile? %>
+        <td class="personal_picture">
+          <%= image_tag(current_user.profile_url,:width => "60px") %>
+        </td>
+      <% end %>
+      <td class="space">
+        <div class="font">
+          <%= current_user.username %><br>
+          <%= current_user.introduce %><br>
+          投稿数: <%= current_user.blogs.count %><br>
+          いいね件数: <%= current_user.favorites.count %>
+        </div>
+      </td>
+    </tr>
+  </tbody>
 </table>
 <% end %>

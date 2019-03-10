@@ -1,21 +1,15 @@
 <div class="container">
  <%= render "shared/information" %>
-
   <table class="table-light mt-3 mb-5 p-4">
-   
-    <% @blogs.each do |blog| %>
-    <% if blog.favorite_users.present? %>
-      <% if user_signed_in? && blog.user_id != current_user.id %>
+    <% current_user.favorites.each do |favorite| %>
         <tr>
-          <td>フォローユーザー名：<%= blog.user.username %><br></td>
+          <td>フォローユーザー名：<%= favorite.blog.content %><br></td>
         </tr>
         <tr>
          <td class="picture">
-           <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
+           <%=link_to image_tag(favorite.blog.image_url,:width => "300px") %>
          </td>
        </tr>
       <% end %>
-    <% end %>
-    <% end %>
   </table>
 </div>
