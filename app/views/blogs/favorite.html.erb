@@ -2,14 +2,14 @@
  <%= render "shared/information" %>
   <table class="table-light mt-3 mb-5 p-4">
     <% current_user.favorites.each do |favorite| %>
-        <tr>
-          <td>フォローユーザー名：<%= favorite.blog.content %><br></td>
-        </tr>
-        <tr>
-         <td class="picture">
-           <%=link_to image_tag(favorite.blog.image_url,:width => "300px") %>
-         </td>
-       </tr>
-      <% end %>
+      <tr>
+        <td>フォローユーザー名：<%= favorite.user.username %><br></td>
+      </tr>
+      <tr>
+        <td class="picture">
+          <%= image_tag(favorite.blog.image_url,:width => "300px") %>
+        </td>
+      </tr>
+    <% end %>
   </table>
 </div>
