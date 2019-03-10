@@ -3,11 +3,11 @@
   <table class="table-light mt-3 mb-5 p-4">
     <% current_user.favorites.each do |favorite| %>
       <tr>
-        <td>フォローユーザー名：<%= favorite.blog.user.username%><br></td>
+        <td>フォローユーザー名：<%= favorite.blog.user.username %><br></td>
       </tr>
       <tr>
         <td class="picture">
-          <%= image_tag(favorite.blog.image_url,:width => "300px") %>
+          <%= link_to image_tag(favorite.blog.image_url,:width => "300px"), blog_path(favorite.blog.id) %>
         </td>
       </tr>
     <% end %>
