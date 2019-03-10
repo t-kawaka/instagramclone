@@ -1,4 +1,4 @@
-<div class="container">
+<div class="col-md-6 offset-3">
   <% if user_signed_in? %>
     ユーザー名：<%= current_user.username %><br>
   <% end %>
@@ -13,7 +13,7 @@
         <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
       <tr>
         <td class="picture">
-          <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
+          <%=link_to image_tag(blog.image_url,:width => "400px"), blog_path(blog.id) %>
         </td>
       </tr>
        <tr>
