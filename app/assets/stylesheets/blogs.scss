@@ -16,8 +16,16 @@ li a:hover {
   text-decoration: none;
 }
 
-.navbar-brand{
-  padding-top:1px !important;
+.navbar-brand a{
+  color:black;
+}
+
+.navbar-brand a:hover{
+ text-decoration:none !important;
+}
+
+.navbar-brand a i{
+  margin-bottom: 1px !important;
 }
 
 .offset-2 {
