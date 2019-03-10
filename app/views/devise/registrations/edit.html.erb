@@ -1,116 +1,104 @@
-<div class="col-md-6 offset-3 mt-5">
- <%= render "devise/shared/error_messages", resource: resource %> 
- <div class="card mb-4 shadow-sm">
-    <div class="card-body">
-      
-      <h3>プロフィールを変更</h3>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-      
-        <div class="field">
-          <%= f.label :ユーザーネーム %><br />
-        </div>
-        
-        <div class="field">
-          <div class="personal_picture">
-            <%= image_tag(@user.profile, :width => "60px", class:"mb-4") if @user.profile %>
+<div class="container">
+  <ul class="nav nav-tabs">
+    <li class="nav-item ml-5">
+      <a class="nav-link active" data-toggle="tab" href="#home">プロフィールを変更</a>
+    </li>
+    <li class="nav-item">
+      <a class="nav-link" data-toggle="tab" href="#profile">パスワードを変更</a>
+    </li>
+  </ul>
+  <div id="myTabContent" class="tab-content">
+    <div class="tab-pane fade active show" id="home">
+      <div class="col-md-6 offset-3 mt-5">
+      <%= render "devise/shared/error_messages", resource: resource %> 
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+            <h4>プロフィールを変更</h4>
+            <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+              <div class="field">
+                <%= f.label :ユーザーネーム %><br />
+              </div>
+              <div class="field">
+                <div class="personal_picture">
+                  <%= image_tag(@user.profile, :width => "60px", class:"mb-4") if @user.profile %>
+                </div>
+                <%= f.file_field :profile, class:"form-control" %>
+                <%= f.hidden_field :profile_cache, class:"form-control" %>
+              </div>
+              <div class="field">
+                <%= f.label :名前 %><br />
+                <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
+              </div>
+              <div class="field">
+                <%= f.label :ユーザーネーム %><br />
+                <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
+              </div>
+              <div class="field">
+                <%= f.label :自己紹介 %><br />
+                <%= f.text_area :introduce, autofocus: true, autocomplete: "introduce", rows: 3 %>
+              </div>
+              <div class="field">
+                <%= f.label :メールアドレス %><br />
+                <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
+              </div>
+              <div class="field">
+                <%= f.label :電話番号 %><br />
+                <%= f.telephone_field :number, autofocus: true, autocomplete: "number" %>
+              </div>
+              <div class="field">
+                <%= f.label :パスワード入力 %><br />
+                <%= f.password_field :current_password, autocomplete: "current-password" %>
+              </div>
+            　<div class="profile">
+            　   <div class="actions col-md-3">
+                  <%= f.submit "送信する", class:"btn btn-ml btn-primary" %>
+                </div>
+              </div>
+            　<div class="profile">
+            　  <div class="actions col-md-3">
+                  <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info" %>
+                </div>
+            　</div>
+            <% end %>
           </div>
-          <%= f.file_field :profile, class:"form-control" %>
-          <%= f.hidden_field :profile_cache, class:"form-control" %>
         </div>
-        
-        <div class="field">
-          <%= f.label :名前 %><br />
-          <%= f.text_field :name, autofocus: true, autocomplete: "name" %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :ユーザーネーム %><br />
-          <%= f.text_field :username, autofocus: true, autocomplete: "username" %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :自己紹介 %><br />
-          <%= f.text_area :introduce, autofocus: true, autocomplete: "introduce", rows: 3 %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :メールアドレス %><br />
-          <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :電話番号 %><br />
-          <%= f.telephone_field :number, autofocus: true, autocomplete: "number" %>
-        </div>
-      
-         <div class="field">
-          <%= f.label :パスワード入力 %><br />
-          <%= f.password_field :current_password, autocomplete: "current-password" %>
-        </div>
-      　<div class="profile">
-      　  <div class="actions col-md-3">
-            <%= f.submit "送信する", class:"btn btn-ml btn-primary" %>
-          </div>
-      　</div>
-      　<div class="profile">
-      　  <div class="actions col-md-3">
-            <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info" %>
-          </div>
-      　</div>
-      <% end %>
+      </div>
     </div>
-  </div>
-</div>
-
-<div class="col-md-6 offset-3 mt-5 mb-5">
-  <div class="card mb-4 shadow-sm">
-    <div class="card-body">
-      <h3>パスワードを変更</h3>
-      <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
-        <div class="field">
-          <%= f.label :パスワード入力 %><br />
-          <%= f.password_field :current_password, autocomplete: "current-password" %>
-        </div>
-        
-        <div class="field">
-          <%= f.label :password, "新しいパスワード" %><br />
-          <% if @minimum_password_length %>
-            <em>(<%= @minimum_password_length %>文字以上)</em><br />
+    <div class="tab-pane fade" id="profile">
+      <div class="col-md-6 offset-3 mt-5 mb-5">
+        <div class="card mb-4 shadow-sm">
+          <div class="card-body">
+          <h4>パスワードを変更</h4>
+          <%= form_for(resource, as: resource_name, url: registration_path(resource_name), html: { method: :put }) do |f| %>
+            <div class="field">
+              <%= f.label :パスワード入力 %><br />
+              <%= f.password_field :current_password, autocomplete: "current-password" %>
+            </div>
+            <div class="field">
+              <%= f.label :password, "新しいパスワード" %><br />
+              <% if @minimum_password_length %>
+                <em>(<%= @minimum_password_length %>文字以上)</em><br />
+              <% end %>
+              <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
+            </div>
+            <div class="field">
+              <%= f.label :password_confirmation, "新しいパスワードを確認" %><br />
+              <%= f.password_field :password_confirmation, autocomplete: "off" %>
+            </div>
+          　<div class="profile">
+          　    <div class="actions col-md-3">
+                  <%= f.submit "送信する", class:"btn btn-ml btn-primary mb-4" %>
+               </div>
+            </div>
+            <div class="profile">
+              <div class="actions col-md-3">
+                <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info mt-5 mb-3" %>
+              </div>
+            </div>
           <% end %>
-          <%= f.password_field :password, autofocus: true, autocomplete: "new-password" %>
-        </div>
-        <div class="field">
-          <%= f.label :password_confirmation, "新しいパスワードを確認" %><br />
-          <%= f.password_field :password_confirmation, autocomplete: "off" %>
-        </div>
-      　<div class="profile">
-      　    <div class="actions col-md-3">
-              <%= f.submit "送信する", class:"btn btn-ml btn-primary mb-4" %>
-           </div>
-        </div>
-        <div class="profile">
-          <div class="actions col-md-3">
-            <%= link_to "トップページへ戻る", root_path, class:"btn btn-ml btn-info mt-5 mb-3" %>
           </div>
-      　</div>
-      <% end %>
+        </div>
+      </div>
     </div>
-  </div>
-</div>
-
-<ul class="nav nav-tabs">
-  <li class="nav-item">
-    <a class="nav-link active" data-toggle="tab" href="#home">Home</a>
-  </li>
-  <li class="nav-item">
-    <a class="nav-link" data-toggle="tab" href="#profile">Profile</a>
-  </li>
-</ul>
-<div id="myTabContent" class="tab-content">
-  <div class="tab-pane fade active show" id="home">
-    <p>Nesciunt tofu stumptown aliqua, retro synth master cleanse. Reprehenderit butcher retro keffiyeh dreamcatcher synth. Cosby sweater eu banh mi, qui irure terry richardson ex squid. Aliquip </p>
-  </div>
-  <div class="tab-pane fade" id="profile">
-    <p>arfa nulla single-origin coffee squid.s next level wes anderson artisan four loko farm-to-table craft beer twee. Qui photo booth letterpress, commodo enim craft beer mlkshk aliquip jean shorts ullamco ad vinyl cillum PBR. Homo nostrud organic, assumenda labore aesthetic magna delectus mollit.</p>
   </div>
 </div>

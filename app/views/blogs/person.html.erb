@@ -6,7 +6,7 @@
         <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
         <td><%= link_to "ブログ編集", edit_blog_path(blog.id), class:"btn btn-ml btn-info pl-3" %></td>
         <td><%= link_to "ブログ削除", blog_path(blog.id), method: :delete, data: {confirm: "本当に削除してもいいですか？"}, class:"btn btn-ml btn-danger pl-3" %></td>
-         <tr>
+        <tr>
           <td class="picture">
           <%=link_to image_tag(blog.image_url,:width => "300px"), blog_path(blog.id) %>
           </td>
