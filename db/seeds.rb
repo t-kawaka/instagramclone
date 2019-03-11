@@ -7,7 +7,7 @@
   User.create!( name: name,
                 username: username,
                 email: email,
-                profile: File.open("./app/assets/images/umaru.jpg"),
+                profile: File.open("./app/assets/images/member.jpg"),
                 password: password,
                 password_confirmation: password,
                 )
