@@ -15,7 +15,7 @@ end
 
 50.times do |n|
   user_id = Faker::Number.between(1,50)
-  content = "content #{n+1}"
+  content = "松山城を撮影する"
   Blog.create!( content: content,
                 image: File.open("./app/assets/images/castle.jpg"),
                 user_id: user_id,
