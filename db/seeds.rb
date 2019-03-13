@@ -10,7 +10,7 @@
                 profile: File.open("./app/assets/images/member.jpg"),
                 password: password,
                 password_confirmation: password,
-                )
+              )
 end
 
 50.times do |n|
@@ -19,5 +19,5 @@ end
   Blog.create!( content: content,
                 image: File.open("./app/assets/images/castle.jpg"),
                 user_id: user_id,
-                )
+              )
 end
