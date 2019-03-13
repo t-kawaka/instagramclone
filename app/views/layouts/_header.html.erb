@@ -9,7 +9,7 @@
       <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarColor03" aria-controls="navbarColor03" aria-expanded="false" aria-label="Toggle navigation">
         <span class="navbar-toggler-icon"></span>
       </button>
-      
+  
       <div class="collapse navbar-collapse" id="navbarColor03">
         <ul class="navbar-nav mr-auto">
           <li class="nav-item active">
@@ -19,7 +19,12 @@
           </li>
           <li class="nav-item active">
             <%= link_to new_blog_path do %>
-              <i class="fa fa-user"></i> ブログ投稿
+              <i class="fa fa-envelope"></i>投稿
+            <% end %>
+          </li>
+          <li class="nav-item active">
+            <%= link_to person_blogs_path do %>
+              <i class="fa fa-user"></i>投稿実績
             <% end %>
           </li>
           <li class="nav-item active">
@@ -27,6 +32,7 @@
               <i class="fa fa-heart"></i> お気に入り投稿
             <% end %>
           </li>
+          
           <li class="nav-item active logout">
             <%= link_to destroy_user_session_path, :method => :delete do %>
               <i class="fa fa-sign-out"></i> ログアウト
