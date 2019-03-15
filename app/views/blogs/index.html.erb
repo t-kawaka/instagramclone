@@ -7,8 +7,10 @@
     <h5 class="mt-3 ml-2">投稿一覧</h5>
     <% @blogs.each do |blog| %>
       <tr>
-        <td class="personal_picture"><%= link_to image_tag(blog.user.profile_url,:width => "60px"), blog_path(blog.id) %></td>
-        <td class="name"><%= blog.user.username %></td>
+        <% if blog.user.profile.present? %>
+          <td class="personal_picture"><%= link_to image_tag(blog.user.profile_url,:width => "60px"), blog_path(blog.id) %></td>
+          <td class="name"><%= blog.user.username %></td>
+        <% end %>
       <tr>
         <td><%= blog.created_at.strftime('%Y年%m月%d日 %H時%M分%S秒') %></td>
       <tr>

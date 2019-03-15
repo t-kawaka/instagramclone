@@ -4,7 +4,9 @@
     <tr>
       <% if current_user.profile? %>
         <td class="personal_picture">
-          <%= image_tag(current_user.profile_url,:width => "60px") %>
+           <% if blog.user.profile.present? %>
+            <%= image_tag(current_user.profile_url,:width => "60px") %>
+          <% end %>
         </td>
       <% end %>
       <td class="space">

@@ -19,11 +19,19 @@
                 <%= f.label :ユーザーネーム %><br />
               </div>
               <div class="field">
+               <% if @user.profile? %>
                 <div class="personal_picture">
-                  <%= image_tag(@user.profile, :width => "60px", class:"mb-4") if @user.profile %>
+                  <%= image_tag(@user.profile_url, :width => "60px", class:"mb-4") if @user.profile %>
                 </div>
+                <% end %>
                 <%= f.file_field :profile, class:"form-control" %>
                 <%= f.hidden_field :profile_cache, class:"form-control" %>
+                <% if @user.profile? %>
+                  <label>
+                    <%= f.check_box :remove_profile %>
+                      画像を削除
+                  </label>
+                <% end %>
               </div>
               <div class="field">
                 <%= f.label :名前 %><br />
