@@ -28,8 +28,7 @@
                 <%= f.hidden_field :profile_cache, class:"form-control" %>
                 <% if @user.profile? %>
                   <label>
-                    <%= f.check_box :remove_profile %>
-                      画像を削除
+                    <span><%= f.check_box :remove_profile %>画像を削除</span>
                   </label>
                 <% end %>
               </div>
