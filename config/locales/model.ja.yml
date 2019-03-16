@@ -12,7 +12,7 @@ ja:
         username: "ユーザーネーム"
         profile: "画像"
         introduce: "紹介"
-        number: "電話番号"
+        Telnumber: "電話番号"
         email: "メールアドレス"
         current_password: "現在のパスワード"
         password: "パスワード"
