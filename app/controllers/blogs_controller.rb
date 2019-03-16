@@ -29,10 +29,13 @@ class BlogsController < ApplicationController
   end
   
   def show
-     @favorite = current_user.favorites.find_by(blog_id: @blog.id)
+    @favorite = current_user.favorites.find_by(blog_id: @blog.id)
   end
   
   def edit
+    if @blog.user_id != current_user.id
+      redirect_to blogs_path, notice: "ブログ編集の許可がありません."
+    end
   end
   
   def update
@@ -45,7 +48,7 @@ class BlogsController < ApplicationController
         end
       end
     else
-      redirect_to edit_blog_path, notice: "You don't have permission."
+      redirect_to edit_blog_path, notice: "ブログ編集の許可がありません."
     end
   end
   
