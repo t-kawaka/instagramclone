@@ -15,16 +15,6 @@ class UsersController < ApplicationController
     end
   end
   
-  def destroy
-    if @blog.user_id == current_user.id
-    @blog.destroy
-      msg = "ブログは削除されました"
-    else
-      msg = "許可されていません"
-    end
-    redirect_to blogs_path, notice:"ブログを削除しました！"
-  end
-  
   private
 
   def user_params
