@@ -2,14 +2,14 @@
   <%= render "devise/shared/error_messages", resource: resource %> 
   <div class="card mb-4 shadow-sm">
     <div class="card-body">
-      <h2>Forgot your password?</h2>
+      <h2>パスワードの再設定</h2>
       <%= form_for(resource, as: resource_name, url: password_path(resource_name), html: { method: :post }) do |f| %>
         <div class="field">
           <%= f.label :email %><br />
           <%= f.email_field :email, autofocus: true, autocomplete: "email" %>
         </div>
         <div class="actions">
-          <%= f.submit "Send me reset password instructions", class:"btn btn-md btn-success" %>
+          <%= f.submit "パスワードの再設定へ移動", class:"btn btn-md btn-success" %>
         </div>
       <% end %>
       <%= render "devise/shared/links" %>
