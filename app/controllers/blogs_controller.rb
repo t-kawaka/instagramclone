@@ -16,8 +16,8 @@ class BlogsController < ApplicationController
   def create
     @blog = current_user.blogs.new(blog_params)
     if @blog.save
-       BlogMailer.blog_mail(@blog).deliver
-       redirect_to blogs_path, notice:"ブログを作成しました"
+      BlogMailer.blog_mail(@blog).deliver
+      redirect_to blogs_path, notice:"ブログを作成しました"
     else
       render 'new'
     end
@@ -62,7 +62,7 @@ class BlogsController < ApplicationController
     redirect_to blogs_path, notice:"ブログを削除しました！"
   end
   
-   def person
+  def person
     @blogs = Blog.all
   end
   
