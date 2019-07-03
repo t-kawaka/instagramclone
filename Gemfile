@@ -13,7 +13,7 @@ gem 'uglifier', '>= 1.3.0'
 gem 'coffee-rails', '~> 4.2'
 gem 'turbolinks', '~> 5'
 gem 'jbuilder', '~> 2.5'
-gem 'bootstrap', '~> 4.1.1'
+gem "bootstrap", ">= 4.3.1"
 gem 'jquery-rails'
 gem 'devise'
 gem 'carrierwave'
@@ -22,6 +22,8 @@ gem 'rails-i18n'
 gem 'faker'
 gem 'kaminari'
 gem "font-awesome-rails"
+gem 'activesupport', '= 5.1.7'
+gem "actionview", ">= 5.1.6.2"
 
 group :development, :test do
   gem 'byebug', platforms: [:mri, :mingw, :x64_mingw]

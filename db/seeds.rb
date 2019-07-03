@@ -3,7 +3,7 @@
   username = "username #{n+1}"
   email = "test#{n+1}@gmail.com"
   password  = "foobar"
-  
+
   User.create!( name: name,
                 username: username,
                 email: email,
